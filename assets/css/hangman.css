@@ -1,8 +1,6 @@
 body {
-    font-family: 'Rubik Mono One', sans-serif;
-    color: rgba(240, 240, 240, 0.644);
-    background: black;
-
+    margin: 0;
+    padding: 0;
 }
 
 .title {
