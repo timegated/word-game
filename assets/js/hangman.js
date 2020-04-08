@@ -37,7 +37,9 @@ const wordGame = {
             link: 'https://developer.mozilla.org/en-US/docs/Glossary/IIFE'
         }
     ],
+    correctWord: [],
     guesses: [],
+    userGuess: [],
     wins: 0,
     losses: 0,
     remainingGuesses: 10,
@@ -70,6 +72,7 @@ const createTheBlanks = () => {
     const answerArray = () => {
         return word.forEach(letter => {
             wordGame.guesses.push('_')
+            wordGame.correctWord.push(letter.toLowerCase())
         })
     }
 
@@ -84,7 +87,27 @@ const displayTheBlanks = () => {
     randomWordElement.textContent = wordGame.guesses.join(' ')
 }
 
+document.addEventListener('keyup', (e) => {
+    const userGuessElement = document.querySelector('.guesses');
+    const winsElement = document.querySelector('.wins');
+    const lossesElement = document.querySelector('.losses');
+    winsElement.textContent = 0;
+    lossesElement.textContent = 0;
+    if (e.keyCode >= 65 && e.keyCode <= 90) {
+        if (wordGame.correctWord.indexOf(e.key) > -1) {
+            console.log('correct guess');
+        }
+        else {
+            wordGame.userGuess.push(e.key);
+            userGuessElement.textContent = wordGame.userGuess;
+            
+        }
+        console.log(e.key);
+    }
+});
+
 displayTheBlanks()
+console.log(wordGame.correctWord)
 console.log(wordGame.guesses)
 
 
