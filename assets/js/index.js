@@ -1,50 +1,48 @@
 const elements = document.querySelector('.elements');
+const trigger = document.querySelector('.trigger-element');
 const elementsArray = Array.from(elements.children);
 
 
 const styleChildElements = (arr) => {
     let transform;
+    let top;
     arr.forEach((item, index) => {
         if (index == 0) {
-            transform = 210;
+            transform = 0;
             item.style = `
-            background: lightblue;
-            border-radius: 9999px;
-            color: white;
-            height: 50px;
-            position: absolute;
-            top: 0px;
             transform: rotate(${transform}deg) translateX(-80px);
-            width: 50px;`
+            display:block;
+            top: 100px`
+            
         }
-        else if (index == 1){
-            transform = 330
+        else if (index == 1) {
+            transform = 180
             item.style = `
-            background: lightblue;
-            border-radius: 9999px;
-            color: white;
-            height: 50px;
-            position: absolute;
-            top: 0px;
             transform: rotate(${transform}deg) translateX(-80px);
-            width: 50px;`
+            display:block;
+            top: 100px;
+        `
         }
         else if (index == 2) {
             transform = 270
             item.style = `
-            background: lightblue;
-            border-radius: 9999px;
-            color: white;
-            height: 50px;
-            position: absolute;
-            top: 0px;
+           
             transform: rotate(${transform}deg) translateX(-80px);
-            width: 50px;
+            display: block; 
+            top: 100px;
             `
         }
-    })
-}
+    });
+};
+const triggerNavAnimation = (e) => {
+    console.log(e.type);
+    e.preventDefault();
+    
+    styleChildElements(elementsArray)
+    
+};
 
-styleChildElements(elementsArray)
+trigger.addEventListener('click', triggerNavAnimation)
+// styleChildElements(elementsArray)
 
-console.log(Array.from(elements.children))
+console.log(trigger)
