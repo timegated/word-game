@@ -17,8 +17,8 @@
 * [x] Set up a non-intrusive sidebar so user's can stay focused on playing the game
 * [x] Set up displaying the blanks to the screen.
 * [] Make sure user's keypresses are logged 
-* [] Incorrect guesses are displayed on another part of the page so user can keep track of what they've already guessed
-* [] Correct guesses fill in the blank area where the correct letter would be
+* [] (Work in progress) Incorrect guesses are displayed on another part of the page so user can keep track of what they've already guessed
+* [x] Correct guesses fill in the blank area where the correct letter would be
 * [] When the user correctly guesses all the letters or fails to, corresponding wins and losses are correctly displayed on the page
 * [] (Optional) User has the option to reset the game midway through which will result in a loss
 * [] User wins and losses are stored in a database and saved for when they possibly resume playing at a later date

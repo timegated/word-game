@@ -1,6 +1,5 @@
 const wordGame = {
-    jsConcepts: [
-        {
+    jsConcepts: [{
             word: 'Closures',
             link: 'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures'
         },
@@ -54,6 +53,7 @@ const wordGame = {
 
 Object.prototype.randomIndex = function () {
     let randomIndex = Math.floor(Math.random() * this.jsConcepts.length)
+
     function saveIndex() {
         return randomIndex
     }
@@ -84,7 +84,7 @@ const createTheBlanks = () => {
 const displayTheBlanks = () => {
     const randomWordElement = document.querySelector('.random-word');
     randomWordElement.textContent = wordGame.guesses.join(' ')
-}
+};
 
 const logCorrectGuess = (letter, func) => {
     for (let i = 0; i < wordGame.correctWord.length; i++) {
@@ -93,7 +93,7 @@ const logCorrectGuess = (letter, func) => {
         }
     }
     return func()
-}
+};
 
 document.addEventListener('keyup', (e) => {
     const userGuessElement = document.querySelector('.guesses');
@@ -106,11 +106,10 @@ document.addEventListener('keyup', (e) => {
             logCorrectGuess(e, displayTheBlanks)
             console.log(wordGame.guesses)
             console.log('correct guess');
-        }
-        else {
+        } else {
             wordGame.userGuess.push(e.key);
             userGuessElement.textContent = wordGame.userGuess;
-            
+
         }
         console.log(e.key);
     }
@@ -120,6 +119,3 @@ createTheBlanks()
 displayTheBlanks()
 console.log(wordGame.correctWord)
 console.log(wordGame.guesses)
-
-
-
