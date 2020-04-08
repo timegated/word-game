@@ -4,6 +4,7 @@ body {
 }
 
 .title {
+    color: #efefef;
     text-decoration: underline;
     font-size: 36px;
     padding: 100px;
@@ -12,10 +13,11 @@ body {
     align-items: center;
     border-radius: 25px;
     border: 1px solid white;
-    background: darkblue
+    background: royalblue;
 }
 
 .game-section {
+    color: #efefef;
     padding: 50px;
     display: flex;
     flex-flow: wrap row;
@@ -25,7 +27,7 @@ body {
 .header,
 .user-input,
 .wins-losses {
-    background: darkblue;
+    background: royalblue;
 }
 
 .user-input>h4 {
@@ -37,6 +39,7 @@ body {
     justify-content: center;
     flex-flow: column;
     text-align: center;
+    flex: .3;
     margin: 10px;
     border: 2px solid white;
     padding: 10px;
@@ -48,8 +51,9 @@ body {
     font-size: 24px;
     text-align: center;
     border: 2px solid white;
-    padding: 20px;
+    padding: 10px;
     border-radius: 25px;
+    flex: .3;
 }
 
 .wins-losses {
@@ -57,8 +61,8 @@ body {
     font-size: 24px;
     text-align: center;
     border: 2px solid white;
-    width: 25%;
     border-radius: 25px;
+    flex: .3;
 }
 
 .end-game {
@@ -73,4 +77,12 @@ body {
     text-align: center;
     font-family: 'Rubik Mono One', sans-serif;
     background: rgb(71, 71, 71);
+}
+
+@media screen and (max-width: 700px) {
+    .game-section {
+        display: flex;
+        flex-direction: column;
+        color: #efefef;
+    }
 }
