@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/hangman.css">
+    <script src="assets/js/hangman.js" defer></script>
     <title>Hangman</title>
 </head>
+
 <body>
-    <h1>Hangman</h1>
+    <div class="title">JS Word Guess</div>
+    <section class="game-section">
+        <div class="header">
+            <h1>Word</h1>
+            <div class="random-word"></div>
+        </div>
+        <div class="user-input">
+            <h4>Good Luck!</h4>
+            <h5>Already Guessed</h5>
+            <div class="guesses"> </div>
+            <h5>Remaining</h5>
+            <div class="remaining-guess"></div>
+        </div>
+        <div class="wins-losses">
+            <h5>Wins</h5>
+            <div class="wins"></div>
+            <h5>Losses</h5>
+            <div class="losses"></div>
+            <div class="end-game">
+                <button class="restart-btn">Restart Game</button>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>

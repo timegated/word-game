@@ -1,0 +1,78 @@
+body {
+    font-family: 'Rubik Mono One', sans-serif;
+    color: rgba(240, 240, 240, 0.644);
+    background: black;
+
+}
+
+.title {
+    text-decoration: underline;
+    font-size: 36px;
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: 1px solid white;
+    background: darkblue
+}
+
+.game-section {
+    padding: 50px;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-evenly;
+}
+
+.header,
+.user-input,
+.wins-losses {
+    background: darkblue;
+}
+
+.user-input>h4 {
+    text-decoration: underline;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    text-align: center;
+    margin: 10px;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.user-input {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid white;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.wins-losses {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    border: 2px solid white;
+    width: 25%;
+    border-radius: 25px;
+}
+
+.end-game {
+    height: 200px;
+    width: 100px;
+    display: none;
+    position: relative;
+    margin: 0 auto;
+}
+
+.restart-btn {
+    text-align: center;
+    font-family: 'Rubik Mono One', sans-serif;
+    background: rgb(71, 71, 71);
+}
