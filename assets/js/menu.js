@@ -35,14 +35,11 @@ const styleChildElements = (arr) => {
     });
 };
 const triggerNavAnimation = (e) => {
-    console.log(e.type);
+    // console.log(e.type);
     e.preventDefault();
-    
     styleChildElements(elementsArray)
-    
 };
 
 trigger.addEventListener('click', triggerNavAnimation)
-// styleChildElements(elementsArray)
 
-console.log(trigger)
+// console.log(trigger)
