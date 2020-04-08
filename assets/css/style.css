@@ -31,9 +31,10 @@
     height: 100px;
     width: 100px;
     background: royalblue;
-    color: salmon;
+    color: white;
     font-family: 'Courier New', Courier, monospace;
     font-size: 24px;
+    border: none;
 }
 
 .trigger-element:hover {
@@ -41,7 +42,7 @@
     cursor: pointer;
 }
 .nav-element {
-    background: lightblue;
+    background: royalblue;
     border-radius: 9999px;
     color: white;
     height: 100px;
@@ -49,10 +50,31 @@
     width: 100px;
     display: none;
     border: none;
+    cursor: pointer;
 }
+
+.nav-element:hover {
+    background: lightblue;
+}
+
 .animate-nav-one {
-    
+    animation-name: fadeInNavOne;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
 }
+
+.animate-nav-two {
+    animation-name: fadeInNavTwo;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+}
+
+.animate-nav-three {
+    animation-name: fadeInNavThree;
+    animation-duration: 4s;
+    animation-iteration-count: 1;
+}
+
 .element {
     align-items: center;
     display: flex;
@@ -60,4 +82,40 @@
     justify-content: center;
     transform: rotate(0deg);
     width: 100%;
+}
+
+@keyframes fadeInNavOne {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInNavTwo {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInNavThree {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: .5;
+    }
+    100% {
+        opacity: 1;
+    }
 }

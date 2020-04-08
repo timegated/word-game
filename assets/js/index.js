@@ -5,32 +5,31 @@ const elementsArray = Array.from(elements.children);
 
 const styleChildElements = (arr) => {
     let transform;
-    let top;
     arr.forEach((item, index) => {
         if (index == 0) {
+            item.classList.add('animate-nav-one');
             transform = 0;
             item.style = `
             transform: rotate(${transform}deg) translateX(-80px);
             display:block;
-            top: 100px`
+            top: 100px`;
             
         }
         else if (index == 1) {
-            transform = 180
+            item.classList.add('animate-nav-two');
+            transform = 180;
             item.style = `
             transform: rotate(${transform}deg) translateX(-80px);
             display:block;
-            top: 100px;
-        `
+            top: 100px`;
         }
         else if (index == 2) {
-            transform = 270
+            item.classList.add('animate-nav-three');
+            transform = 270;
             item.style = `
-           
             transform: rotate(${transform}deg) translateX(-80px);
             display: block; 
-            top: 100px;
-            `
+            top: 100px;`;
         }
     });
 };
