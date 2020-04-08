@@ -82,9 +82,17 @@ const createTheBlanks = () => {
 };
 
 const displayTheBlanks = () => {
-    createTheBlanks()
     const randomWordElement = document.querySelector('.random-word');
     randomWordElement.textContent = wordGame.guesses.join(' ')
+}
+
+const logCorrectGuess = (letter, func) => {
+    for (let i = 0; i < wordGame.correctWord.length; i++) {
+        if (letter.key === wordGame.correctWord[i]) {
+            wordGame.guesses[i] = letter.key.toLowerCase();
+        }
+    }
+    return func()
 }
 
 document.addEventListener('keyup', (e) => {
@@ -95,6 +103,8 @@ document.addEventListener('keyup', (e) => {
     lossesElement.textContent = 0;
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         if (wordGame.correctWord.indexOf(e.key) > -1) {
+            logCorrectGuess(e, displayTheBlanks)
+            console.log(wordGame.guesses)
             console.log('correct guess');
         }
         else {
@@ -105,7 +115,7 @@ document.addEventListener('keyup', (e) => {
         console.log(e.key);
     }
 });
-
+createTheBlanks()
 displayTheBlanks()
 console.log(wordGame.correctWord)
 console.log(wordGame.guesses)
