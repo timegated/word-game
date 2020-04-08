@@ -1,4 +1,4 @@
-const hangManGame = {
+const wordGame = {
     jsConcepts: [
         {
             word: 'Closures',
@@ -47,55 +47,46 @@ const hangManGame = {
         randomWord: document.querySelector('.random-word'),
         guesses: document.querySelector('.guesses'),
         remainingGuesses: document.querySelector('remaining-guess')
-    }
+    },
 }
 
-
-
-const generateRandomWord = (str) => {
-    for (let value in str) {
-        str[value] = "_"
+Object.prototype.randomIndex = function () {
+    let randomIndex = Math.floor(Math.random() * this.jsConcepts.length)
+    function saveIndex() {
+        return randomIndex
     }
-    return str;
+    return saveIndex();
+};
+
+Object.prototype.randomWord = function () {
+    return this.jsConcepts[this.randomIndex()]
 };
 
 
+
+const createTheBlanks = () => {
+    const randomWord = wordGame.randomWord();
+    const word = [...randomWord.word];
+    const answerArray = () => {
+        return word.forEach(letter => {
+            wordGame.guesses.push('_')
+        })
+    }
+
+    return answerArray();
+    // console.log(word);
+    // console.log(link);
+};
+
+const displayTheBlanks = () => {
+    createTheBlanks()
+    const randomWordElement = document.querySelector('.random-word');
+    randomWordElement.textContent = wordGame.guesses.join(' ')
+}
+
+displayTheBlanks()
+console.log(wordGame.guesses)
 // Remove duplicates from userGuess array
 
 
 
-const checkForMatch = (word, wholeWord, guess, letter) => {
-    let foundLetter = false;
-    // console.log('[the whole word]', wholeWord)
-    // console.log('[user\'s guess]', guess)
-    // console.log('[splitWord inside checkForMatch]', word)
-    const splitWholeWord = wholeWord.toLowerCase().split('')
-
-    // If any of the values match in splitWholeWord, replace the blanks with the correct letter
-
-    console.log('[splitting the whole word]', splitWholeWord)
-    for (let value in splitWholeWord) {
-        if (letter === splitWholeWord[value]) {
-            userGuess[value] = letter
-            console.log('[correct letter found in splitWholeWord]')
-            foundLetter = true;
-            console.log(foundLetter)
-        };
-    };
-    if (!foundLetter) {
-        if (!userGuess.includes(letter)) {
-            userGuess.push(event.key)
-            userGuess = checkForDuplicateGuesses(userGuess)
-            USER_GUESSES.innerText = userGuess.join('')
-            REMAINING_GUESSES.innerText--
-        };
-    };
-    
-};
-
-// console.log('[splitWord outside of function]', splitWord)
-// WINS.innerText = wins;
-// LOSSES.innerText = losses;
-// REMAINING_GUESSES.innerText = remainingGuesses;
-// RANDOM_WORD.innerText = generateRandomWord(splitWord)
-// document.addEventListener('keyup', listenForUserActions);
