@@ -115,6 +115,7 @@ document.addEventListener('keyup', (e) => {
         console.log(e.key);
     }
 });
+
 createTheBlanks()
 displayTheBlanks()
 console.log(wordGame.correctWord)
