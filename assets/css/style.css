@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
 }
+
 .navigation-content {
     height: 100%;
     position: absolute;
@@ -12,6 +13,7 @@
     top:0px;
     left: 0px;
 }
+
 .navigation {
     align-items: center;
     display: flex;
@@ -32,8 +34,8 @@
     width: 100px;
     background: royalblue;
     color: white;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 24px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 32px;
     border: none;
 }
 
@@ -41,6 +43,7 @@
     background: lightblue;
     cursor: pointer;
 }
+
 .nav-element {
     background: royalblue;
     border-radius: 9999px;
@@ -51,6 +54,40 @@
     display: none;
     border: none;
     cursor: pointer;
+}
+
+.game-links {
+    text-decoration: none;
+    color: #fff;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.game-link-one {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    transform: rotate(0deg);
+    width: 100%;
+}
+
+.game-link-two {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    transform: rotate(180deg);
+    width: 100%;
+}
+
+.game-link-three {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    transform: rotate(-270deg);
+    width: 100%;
 }
 
 .nav-element:hover {

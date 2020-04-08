@@ -10,26 +10,27 @@ const styleChildElements = (arr) => {
             item.classList.add('animate-nav-one');
             transform = 0;
             item.style = `
-            transform: rotate(${transform}deg) translateX(-80px);
+            transform: rotate(${transform}deg) translateX(-120px);
             display:block;
-            top: 100px`;
+            top: 0px
+            `;
             
         }
         else if (index == 1) {
             item.classList.add('animate-nav-two');
             transform = 180;
             item.style = `
-            transform: rotate(${transform}deg) translateX(-80px);
+            transform: rotate(${transform}deg) translateX(-120px);
             display:block;
-            top: 100px`;
+            top: 0px`;
         }
         else if (index == 2) {
             item.classList.add('animate-nav-three');
             transform = 270;
             item.style = `
-            transform: rotate(${transform}deg) translateX(-80px);
+            transform: rotate(${transform}deg) translateX(-120px);
             display: block; 
-            top: 100px;`;
+            top: 0px;`;
         }
     });
 };
