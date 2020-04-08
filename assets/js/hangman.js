@@ -47,7 +47,7 @@ const wordGame = {
         randomWord: document.querySelector('.random-word'),
         guesses: document.querySelector('.guesses'),
         remainingGuesses: document.querySelector('remaining-guess')
-    },
+    }
 }
 
 Object.prototype.randomIndex = function () {
@@ -86,7 +86,6 @@ const displayTheBlanks = () => {
 
 displayTheBlanks()
 console.log(wordGame.guesses)
-// Remove duplicates from userGuess array
 
 
 
