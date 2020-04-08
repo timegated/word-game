@@ -93,12 +93,10 @@
     margin: -100px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #ededed;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
 
