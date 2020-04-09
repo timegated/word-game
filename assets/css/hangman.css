@@ -50,7 +50,16 @@ body {
     padding: 10px;
     border-radius: 25px;
 }
-
+.message {
+    font-size: 16px;
+    font-family: monospace;
+    animation-name: fadeInOut;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+.play-state {
+    display: none;
+}
 .user-input {
     display: block;
     font-size: 24px;
@@ -70,20 +79,19 @@ body {
     flex: .25;
 }
 
-.end-game {
-    height: 200px;
-    width: 100px;
-    display: none;
-    position: relative;
-    margin: 0 auto;
-}
-
 .restart-btn {
     text-align: center;
     font-family: 'Rubik Mono One', sans-serif;
     background: rgb(71, 71, 71);
 }
-
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 @media screen and (max-width: 700px) {
     .game-section {
         display: flex;

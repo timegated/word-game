@@ -94,14 +94,20 @@ const logCorrectGuess = (letter, func) => {
     }
     return func()
 };
-
+const hideMessage = () => {
+    const messageElement = document.querySelector('.message');
+    messageElement.classList.add('play-state')
+}
 document.addEventListener('keyup', (e) => {
     const userGuessElement = document.querySelector('.guesses');
     const winsElement = document.querySelector('.wins');
     const lossesElement = document.querySelector('.losses');
+    const remainingGuessesElement = document.querySelector('.remaining-guess');
+    remainingGuessesElement.textContent = 10;
     winsElement.textContent = 0;
     lossesElement.textContent = 0;
     if (e.keyCode >= 65 && e.keyCode <= 90) {
+        hideMessage()
         if (wordGame.correctWord.indexOf(e.key) > -1) {
             logCorrectGuess(e, displayTheBlanks)
             console.log(wordGame.guesses)
@@ -109,7 +115,7 @@ document.addEventListener('keyup', (e) => {
         } else {
             wordGame.userGuess.push(e.key);
             userGuessElement.textContent = wordGame.userGuess;
-
+            remainingGuessesElement.textContent--;
         }
         console.log(e.key);
     }
