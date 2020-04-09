@@ -61,9 +61,9 @@ Object.prototype.randomWord = function () {
     return this.jsConcepts[this.randomIndex()]
 };
 
-const { targets, correctWord } = wordGame;
+const { targets, correctWord, correctGuesses, userGuess } = wordGame;
 const { remainingGuesses, losses, wins, randomWord, guesses } = targets;
-
+// let correctLetters = correctWord.length;
 remainingGuesses.textContent = 10
 wins.textContent = 0;
 losses.textContent = 0;
@@ -73,8 +73,9 @@ const createTheBlanks = () => {
     const word = [...randomWord.word];
     const answerArray = () => {
         return word.forEach(letter => {
-            wordGame.correctGuesses.push('_')
-            wordGame.correctWord.push(letter.toLowerCase())
+            correctGuesses.push('_')
+            correctWord.push(letter.toLowerCase())
+            console.log(correctWord.length)
         })
     }
 
@@ -136,5 +137,5 @@ const initialize = () => {
 initialize();
 
 console.log(correctWord)
-console.log(wordGame.correctGuesses);
-console.log(wordGame.userGuess);
+console.log(correctGuesses);
+console.log(userGuess);
