@@ -16,7 +16,7 @@
 
 * [x] Set up a non-intrusive sidebar so user's can stay focused on playing the game
 * [x] Set up displaying the blanks to the screen.
-* [] Make sure user's keypresses are logged 
+* [x] Make sure user's keypresses are logged 
 * [] (Work in progress) Incorrect guesses are displayed on another part of the page so user can keep track of what they've already guessed
 * [x] Correct guesses fill in the blank area where the correct letter would be
 * [] When the user correctly guesses all the letters or fails to, corresponding wins and losses are correctly displayed on the page

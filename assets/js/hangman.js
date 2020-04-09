@@ -37,17 +37,14 @@ const wordGame = {
         }
     ],
     correctWord: [],
-    guesses: [],
-    userGuess: [],
-    wins: 0,
-    losses: 0,
-    remainingGuesses: 10,
+    correctGuesses: [],
+    userGuess: new Set(),
     targets: {
         losses: document.querySelector('.losses'),
         wins: document.querySelector('.wins'),
         randomWord: document.querySelector('.random-word'),
         guesses: document.querySelector('.guesses'),
-        remainingGuesses: document.querySelector('remaining-guess')
+        remainingGuesses: document.querySelector('.remaining-guess')
     }
 }
 
@@ -64,14 +61,19 @@ Object.prototype.randomWord = function () {
     return this.jsConcepts[this.randomIndex()]
 };
 
+const { targets, correctWord } = wordGame;
+const { remainingGuesses, losses, wins, randomWord, guesses } = targets;
 
+remainingGuesses.textContent = 10
+wins.textContent = 0;
+losses.textContent = 0;
 
 const createTheBlanks = () => {
     const randomWord = wordGame.randomWord();
     const word = [...randomWord.word];
     const answerArray = () => {
         return word.forEach(letter => {
-            wordGame.guesses.push('_')
+            wordGame.correctGuesses.push('_')
             wordGame.correctWord.push(letter.toLowerCase())
         })
     }
@@ -82,46 +84,57 @@ const createTheBlanks = () => {
 };
 
 const displayTheBlanks = () => {
-    const randomWordElement = document.querySelector('.random-word');
-    randomWordElement.textContent = wordGame.guesses.join(' ')
+    randomWord.textContent = wordGame.correctGuesses.join(' ')
 };
 
 const logCorrectGuess = (letter, func) => {
     for (let i = 0; i < wordGame.correctWord.length; i++) {
-        if (letter.key === wordGame.correctWord[i]) {
-            wordGame.guesses[i] = letter.key.toLowerCase();
+        if (letter === wordGame.correctWord[i]) {
+            wordGame.correctGuesses[i] = letter.toLowerCase();
         }
     }
     return func()
 };
+
+const displayUserGuesses = (letter) => {
+    guesses.innerHTML = `<p>${[...wordGame.userGuess.add(letter)]}<p>`;
+    
+    if (remainingGuesses.textContent == 0) {
+        losses.textContent++;
+        initialize()
+    }
+};
+
 const hideMessage = () => {
     const messageElement = document.querySelector('.message');
     messageElement.classList.add('play-state')
-}
+};
+
 document.addEventListener('keyup', (e) => {
-    const userGuessElement = document.querySelector('.guesses');
-    const winsElement = document.querySelector('.wins');
-    const lossesElement = document.querySelector('.losses');
-    const remainingGuessesElement = document.querySelector('.remaining-guess');
-    remainingGuessesElement.textContent = 10;
-    winsElement.textContent = 0;
-    lossesElement.textContent = 0;
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         hideMessage()
         if (wordGame.correctWord.indexOf(e.key) > -1) {
-            logCorrectGuess(e, displayTheBlanks)
-            console.log(wordGame.guesses)
-            console.log('correct guess');
+            logCorrectGuess(e.key, displayTheBlanks)
         } else {
-            wordGame.userGuess.push(e.key);
-            userGuessElement.textContent = wordGame.userGuess;
-            remainingGuessesElement.textContent--;
+            displayUserGuesses(e.key);
+            remainingGuesses.textContent--
+            // wordGame.userGuess.push(e.key);
+            // userGuessElement.textContent = wordGame.userGuess;
+            // remainingGuessesElement.textContent--;
         }
         console.log(e.key);
     }
 });
 
-createTheBlanks()
-displayTheBlanks()
-console.log(wordGame.correctWord)
-console.log(wordGame.guesses)
+const initialize = () => {
+    remainingGuesses.textContent = 10;
+    randomWord.textContent = '';
+    guesses.textContent = '';
+    createTheBlanks();
+};
+
+initialize();
+
+console.log(correctWord)
+console.log(wordGame.correctGuesses);
+console.log(wordGame.userGuess);
