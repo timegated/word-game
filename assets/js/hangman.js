@@ -63,10 +63,21 @@ Object.prototype.randomWord = function () {
 
 const { targets, correctWord, correctGuesses, userGuess } = wordGame;
 const { remainingGuesses, losses, wins, randomWord, guesses } = targets;
-// let correctLetters = correctWord.length;
+
 remainingGuesses.textContent = 10
 wins.textContent = 0;
 losses.textContent = 0;
+// Checking if correctGuesses and correctWord are equal
+
+const isEqual = (array1, array2) => {
+    for (let item in array1) {
+        for (let itemTwo in array2) {
+            if (array1[item] === array2[itemTwo]) {
+                console.log('equal')
+            }
+        }
+    }
+};
 
 const createTheBlanks = () => {
     const randomWord = wordGame.randomWord();
@@ -80,8 +91,6 @@ const createTheBlanks = () => {
     }
 
     return answerArray();
-    // console.log(word);
-    // console.log(link);
 };
 
 const displayTheBlanks = () => {
@@ -92,6 +101,9 @@ const logCorrectGuess = (letter, func) => {
     for (let i = 0; i < wordGame.correctWord.length; i++) {
         if (letter === wordGame.correctWord[i]) {
             wordGame.correctGuesses[i] = letter.toLowerCase();
+            if (isEqual(correctGuesses, correctWord)) {
+                console.log('true')
+            }
         }
     }
     return func()
@@ -119,9 +131,6 @@ document.addEventListener('keyup', (e) => {
         } else {
             displayUserGuesses(e.key);
             remainingGuesses.textContent--
-            // wordGame.userGuess.push(e.key);
-            // userGuessElement.textContent = wordGame.userGuess;
-            // remainingGuessesElement.textContent--;
         }
         console.log(e.key);
     }
@@ -133,9 +142,3 @@ const initialize = () => {
     guesses.textContent = '';
     createTheBlanks();
 };
-
-initialize();
-
-console.log(correctWord)
-console.log(correctGuesses);
-console.log(userGuess);
