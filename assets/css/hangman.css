@@ -1,6 +1,7 @@
 *,
 *:before,
 *:after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -25,7 +26,6 @@ body {
     text-align: center;
     border-radius: 25px;
     margin: 1rem;
-    /* width: 75%; */
     border: 1px solid white;
     background: royalblue;
 }
@@ -39,7 +39,9 @@ body {
     padding: 50px;
     font-family: monospace;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .header,
@@ -53,13 +55,14 @@ body {
 }
 
 .header {
-    display: flex;
+    display: block;
     justify-content: center;
-    flex-flow: column;
     text-align: center;
-    /* flex: 1; */
+    width: 500px;
+    height: 150px;
     border: 2px solid white;
     border-radius: 25px;
+    margin-bottom: 1rem;
 }
 
 .user-input {
@@ -68,9 +71,9 @@ body {
     text-align: center;
     border: 2px solid white;
     padding: 10px;
-    margin-left: 1rem;
+    margin-bottom: 1rem;
     border-radius: 25px;
-    /* flex: 1; */
+    width: 500px;
 }
 
 .wins-losses {
@@ -79,8 +82,7 @@ body {
     text-align: center;
     border: 2px solid white;
     border-radius: 25px;
-    margin-left: 1rem;
-    /* flex: 1; */
+    width: 500px;
 }
 
 .message {
@@ -94,14 +96,6 @@ body {
 
 .play-state {
     display: none;
-}
-
-
-
-.restart-btn {
-    text-align: center;
-    font-family: 'Rubik Mono One', sans-serif;
-    background: rgb(71, 71, 71);
 }
 
 @keyframes fadeInOut {
@@ -143,9 +137,5 @@ body {
     .wins-losses {
         font-size: 16px;
         margin: .5rem;
-    }
-
-    .user-input {
-        /* margin:1rem; */
     }
 }
