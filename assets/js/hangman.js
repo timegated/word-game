@@ -126,7 +126,7 @@ const hideMessage = () => {
 document.addEventListener('keyup', (e) => {
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         hideMessage()
-        if (wordGame.correctWord.indexOf(e.key) > -1) {
+        if (correctWord.indexOf(e.key) > -1) {
             logCorrectGuess(e.key, displayTheBlanks)
         } else {
             displayUserGuesses(e.key);
