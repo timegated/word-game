@@ -116,6 +116,17 @@ const hideMessage = () => {
     messageElement.classList.add('play-state');
 };
 
+
+const initialize = () => {
+    remainingGuesses.textContent = 10;
+    randomWord.textContent = '';
+    guesses.textContent = '';
+    userGuess.clear();
+    correctWord = [];
+    correctGuess = [];
+    createTheBlanks();
+};
+
 document.addEventListener('keyup', (e) => {
     if (e.keyCode >= 65 && e.keyCode <= 90) {
         hideMessage()
@@ -128,15 +139,4 @@ document.addEventListener('keyup', (e) => {
         console.log(e.key);
     };
 });
-
-const initialize = () => {
-    remainingGuesses.textContent = 10;
-    randomWord.textContent = '';
-    guesses.textContent = '';
-    userGuess.clear();
-    correctWord = [];
-    correctGuess = [];
-    createTheBlanks();
-};
-
 console.log(correctWord)
