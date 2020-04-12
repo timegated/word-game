@@ -98,7 +98,7 @@ const logCorrectGuess = (letter, func) => {
         console.log(correctLength)
         console.log(correctWord.length)
         if (correctLength === correctWord.length) {
-            alert('You won')
+            console.log(`you won`)
         };
     };
 };
