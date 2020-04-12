@@ -58,8 +58,9 @@ Object.prototype.randomIndex = function () {
 };
 
 Object.prototype.randomWord = function () {
-    return this.jsConcepts[this.randomIndex()]
+    return this.jsConcepts[this.randomIndex()];
 };
+
 
 let { targets, correctWord, correctGuesses, userGuess } = wordGame;
 const { remainingGuesses, losses, wins, randomWord, guesses } = targets;
@@ -67,16 +68,6 @@ const { remainingGuesses, losses, wins, randomWord, guesses } = targets;
 remainingGuesses.textContent = 10;
 wins.textContent = 0;
 losses.textContent = 0;
-
-const isEqual = (array1, array2) => {
-    for (let item in array1) {
-        for (let itemTwo in array2) {
-            if (array1[item] === array2[itemTwo]) {
-                console.log('equal')
-            };
-        };
-    };
-};
 
 const createTheBlanks = () => {
     const randomWord = wordGame.randomWord();
@@ -90,8 +81,10 @@ const createTheBlanks = () => {
 };
 
 const displayTheBlanks = () => {
-    randomWord.textContent = wordGame.correctGuesses.join(' ')
-};
+    randomWord.textContent = correctGuesses.join(' ');
+    return true
+}
+
 
 const logCorrectGuess = (letter, func) => {
     for (let i = 0; i < wordGame.correctWord.length; i++) {
@@ -99,7 +92,9 @@ const logCorrectGuess = (letter, func) => {
             correctGuesses[i] = letter.toLowerCase();
         };
     };
-    return func();
+    if (func()) {
+        wordGame.correctLength()
+    }
 };
 
 const displayUserGuesses = (letter) => {
@@ -126,6 +121,11 @@ const initialize = () => {
     correctGuess = [];
     createTheBlanks();
 };
+document.addEventListener('DOMContentLoaded', () => {
+    createTheBlanks();
+    displayTheBlanks();
+    console.log(correctWord)
+});
 
 document.addEventListener('keyup', (e) => {
     if (e.keyCode >= 65 && e.keyCode <= 90) {
@@ -139,4 +139,3 @@ document.addEventListener('keyup', (e) => {
         console.log(e.key);
     };
 });
-console.log(correctWord)
