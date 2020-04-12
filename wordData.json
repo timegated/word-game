@@ -1,0 +1,42 @@
+{"words": [
+    {
+        "word": "Closure",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures"
+    },
+    {
+        "word": "Prototype",
+        "link": "https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes"
+    },
+    {
+        "word": "Scope",
+        "link": "https://developer.mozilla.org/en-US/docs/Glossary/Scope"
+    },
+    {
+        "word": "Object",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object"
+    },
+    {
+        "word": "Function",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function"
+    },
+    {
+        "word": "HTTP",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/HTTP"
+    },
+    {
+        "word": "REST",
+        "link": "https://developer.mozilla.org/en-US/docs/Glossary/REST"
+    },
+    {
+        "word": "NODEJS",
+        "link": "https://developer.mozilla.org/en-US/docs/Glossary/Node.js"
+    },
+    {
+        "word": "IFFE",
+        "link": "https://developer.mozilla.org/en-US/docs/Glossary/IIFE"
+    },
+    {
+        "word": "Map",
+        "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map"
+    }]
+}
