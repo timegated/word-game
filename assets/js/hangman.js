@@ -64,7 +64,7 @@ Object.prototype.randomWord = function () {
 
 let { targets, correctWord, correctGuesses, userGuess } = wordGame;
 const { remainingGuesses, losses, wins, randomWord, guesses } = targets;
-
+let correctLength = correctGuesses.length;
 remainingGuesses.textContent = 10;
 wins.textContent = 0;
 losses.textContent = 0;
@@ -83,18 +83,24 @@ const createTheBlanks = () => {
 const displayTheBlanks = () => {
     randomWord.textContent = correctGuesses.join(' ');
     return true
-}
+};
 
 
 const logCorrectGuess = (letter, func) => {
+    
     for (let i = 0; i < wordGame.correctWord.length; i++) {
         if (letter === wordGame.correctWord[i]) {
             correctGuesses[i] = letter.toLowerCase();
         };
     };
     if (func()) {
-        wordGame.correctLength()
-    }
+        correctLength++
+        console.log(correctLength)
+        console.log(correctWord.length)
+        if (correctLength === correctWord.length) {
+            alert('You won')
+        };
+    };
 };
 
 const displayUserGuesses = (letter) => {
@@ -121,21 +127,23 @@ const initialize = () => {
     correctGuess = [];
     createTheBlanks();
 };
+
 document.addEventListener('DOMContentLoaded', () => {
     createTheBlanks();
     displayTheBlanks();
+    console.log(correctWord.length)
     console.log(correctWord)
+    document.addEventListener('keyup', (e) => {
+        if (e.keyCode >= 65 && e.keyCode <= 90) {
+            hideMessage()
+            if (correctWord.indexOf(e.key) > -1) {
+                logCorrectGuess(e.key, displayTheBlanks)
+            } else {
+                displayUserGuesses(e.key);
+                remainingGuesses.textContent--;
+            };
+            console.log(e.key);
+        };
+    });
 });
 
-document.addEventListener('keyup', (e) => {
-    if (e.keyCode >= 65 && e.keyCode <= 90) {
-        hideMessage()
-        if (correctWord.indexOf(e.key) > -1) {
-            logCorrectGuess(e.key, displayTheBlanks)
-        } else {
-            displayUserGuesses(e.key);
-            remainingGuesses.textContent--;
-        };
-        console.log(e.key);
-    };
-});
