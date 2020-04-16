@@ -1,26 +1,33 @@
-function WordGameArr(wordArr, correctArr, guessArr, userGuessArr) {
-    this.wordArr = wordArr;
-    this.correctArr = correctArr;
-    this.guessArr = guessArr;
-    this.userGuess = userGuessArr;
-}
+(function init() {
+    function WordGameArr() {
+        this.wordArr = []
+        this.randomWord = '';
+        this.correctArr = [];
+        this.guessArr = [];
+        this.userGuess = [];
+        this.wins = 0;
+        this.losses = 0;
+        this.remainingGuesses = 10;
+    }
 
-const wordGameArrays = new WordGameArr([],[],[],[])
+    const wordGame = new WordGameArr();
 
+    WordGameArr.prototype.getWords = function () {
+        fetch('../../wordData.json')
+            .then(res => res.json())
+            .then(data => {
+                const { words } = data
+                words.forEach(word => {
+                    this.wordArr.push(word)
+                })
+            });
+    };
 
-const { wordArr } = wordGameArrays;
+    WordGameArr.prototype.getRandomWord = function () {
+        return this.wordArr[Math.floor(Math.random() * this.wordArr.length - 1)]
+    };
 
-WordGameArr.prototype.getWords = function () {
-    fetch('../../wordData.json')
-        .then(res => res.json())
-        .then(data => {
-            const { words } = data
-            words.forEach(word => {
-                wordArr.push(word)
-            })
-        });    
-}
-
-console.log(WordGameArr.prototype)
-wordGameArrays.getWords();
-
+    wordGame.getWords();
+    console.log(wordGame);
+    
+})();
