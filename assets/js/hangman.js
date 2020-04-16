@@ -11,14 +11,19 @@ const wordGame = {
         remainingGuesses: document.querySelector('.remaining-guess')
     }
 };
-
+const { jsConcepts } = wordGame;
 fetch('../../wordData.json')
     .then(res => res.json())
     .then(data => {
-        return wordGame.jsConcepts.push(Array.from(data.words))
-    })
+        const { words } = data;
+        words.forEach(word => {
+            jsConcepts.push(word)
+        })
+    });
+    
+console.log(jsConcepts)
 
-console.log(wordGame.jsConcepts)
+
 // Object.prototype.randomIndex = function () {
 //     let randomIndex = Math.floor(Math.random() * this.jsConcepts.length)
 
