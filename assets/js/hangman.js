@@ -1,5 +1,5 @@
 (function init() {
-    function WordGameArr() {
+    function WordGameArr(words) {
         this.wordArr = []
         this.randomWord = '';
         this.correctArr = [];
@@ -18,16 +18,19 @@
             .then(data => {
                 const { words } = data
                 words.forEach(word => {
-                    this.wordArr.push(word)
+                    this.wordArr.push(word);
                 })
+                
             });
-    };
+        return this.wordArr
+    }
+        
 
     WordGameArr.prototype.getRandomWord = function () {
         return this.wordArr[Math.floor(Math.random() * this.wordArr.length - 1)]
     };
 
-    wordGame.getWords();
-    console.log(wordGame);
-    
+    wordGame.getWords()
+    const { wordArr } = wordGame;
+    console.log()
 })();
