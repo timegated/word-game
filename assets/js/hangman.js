@@ -110,7 +110,7 @@
             console.log(correctLength)
             console.log(correctWord.length)
             if (correctLength === correctWord.length) {
-                console.log(`you won`)
+                init()
             };
         };
     };
