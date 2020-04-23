@@ -141,10 +141,6 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
-        createTheBlanks();
-        displayTheBlanks();
-        console.log(correctWord.length)
-        console.log(correctWord)
         document.addEventListener('keyup', (e) => {
             if (e.keyCode >= 65 && e.keyCode <= 90) {
                 hideMessage()
@@ -158,5 +154,4 @@
             };
         });
     });
-
 }());

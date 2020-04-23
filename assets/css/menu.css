@@ -1,158 +1,76 @@
-*, 
-*:after, 
-*:before {
+html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.navigation-content {
-    height: 100%;
-    position: absolute;
-    width: 100%;
-    top:0px;
-    left: 0px;
+body {
+    box-sizing: inherit;
+    background-color: #efedeb;
 }
 
-.navigation {
-    align-items: center;
+/* Content Wrappers */
+
+.content-wrapper {
     display: flex;
     flex-direction: column;
-    height: 100%;
     justify-content: center;
-    padding: 8px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.circular-nav {
-    position: relative;
-}
+/* Content */
 
-.trigger-element {
+.title {
     border: 1px solid black;
-    border-radius: 10%;
-    height: 100px;
-    width: 100px;
-    background: royalblue;
-    color: white;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 32px;
-    border: none;
+    box-shadow: 1px 1px 1px black;
+    font-family: 'Segoe UI',
+        Tahoma,
+        Geneva,
+        Verdana,
+        sans-serif;
+    text-align: center;
 }
 
-.trigger-element:hover {
-    background: lightblue;
-    cursor: pointer;
+.hangman-content {
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    padding: 3rem;
+    margin: 1rem;
 }
 
-.nav-element {
-    background: royalblue;
-    border-radius: 9999px;
-    color: white;
-    height: 100px;
-    position: absolute;
-    width: 100px;
-    display: none;
-    border: none;
-    cursor: pointer;
+.crossword-content {
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    padding: 3rem;
+    margin: 1rem;
 }
 
-.game-links {
+a {
     text-decoration: none;
-    color: #fff;
-    font-family: monospace;
-    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid #37565b;
+    box-shadow: 2px 2px 2px #37565b;
+    padding: 2rem;
+    margin: 1rem;
 }
 
-.game-link-one {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    transform: rotate(0deg);
-    width: 100%;
-}
-
-.game-link-two {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    transform: rotate(180deg);
-    width: 100%;
-}
-
-.game-link-three {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    transform: rotate(-270deg);
-    width: 100%;
-}
-
-.nav-element:hover {
-    background: lightblue;
-}
-
-.animate-nav-one {
-    animation-name: fadeInNavOne;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-}
-
-.animate-nav-two {
-    animation-name: fadeInNavTwo;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-}
-
-.animate-nav-three {
-    animation-name: fadeInNavThree;
-    animation-duration: 4s;
-    animation-iteration-count: 1;
-}
-
-.element {
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    transform: rotate(0deg);
-    width: 100%;
-}
-
-@keyframes fadeInNavOne {
-    0% {
-        opacity: 0;
+@media screen and (min-width:800px) {
+    .game-content-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 1200px;
+        margin: auto;
     }
-    50% {
-        opacity: .5;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 
-@keyframes fadeInNavTwo {
-    0% {
-        opacity: 0;
+    .hangman-content {
+        flex: 1 0 50%;
     }
-    50% {
-        opacity: .5;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 
-@keyframes fadeInNavThree {
-    0% {
-        opacity: 0;
-    }
-    50% {
-        opacity: .5;
-    }
-    100% {
-        opacity: 1;
+    .crossword-content {
+        flex: 1 0 50%;
     }
 }
