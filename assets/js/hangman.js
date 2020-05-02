@@ -8,17 +8,13 @@
     };
 
     function Elements() {
-        this.elements = [
-            {
-                randomWord: document.querySelector('.random-word')
-            },
-            {
-                randomLink: document.querySelector('.random-link')
-            },
-            {
-                startMessage: document.querySelector('.message')
-            }
-        ];
+        this.randomWord = document.querySelector('.random-word')
+        this.randomLink = document.querySelector('.random-link')
+        this.startMessage = document.querySelector('.message')
+        this.userGuesses = document.querySelector('.guesses')
+        this.remainingGuesses = document.querySelector('.remaining-guess')
+        this.wins = document.querySelector('.wins')
+        this.losses = document.querySelector('.losses')
     };
 
     // Modifiying prototype of game constructor
@@ -44,17 +40,28 @@
     // Instantiate ui
 
     const uiElements = new Elements();
-    const { elements } = uiElements;
-    const [randomWord, randomLink, startMessage] = elements;
+
+    const {
+        randomWord,
+        randomLink,
+        remainingGuesses,
+        startMessage,
+        userGuesses,
+        wins,
+        losses
+    } = uiElements;
 
     document.addEventListener('keyup', function (e) {
-        startMessage.startMessage.style = 'display: none';
+        startMessage.style = 'display: none';
 
         newGame.getWordsFromJson('/wordData.json').then(function (res) {
             newGame.words = res.words;
             const singleWord = Array.from(newGame.getRandomWords(newGame.words));
+            const wordBlanks = singleWord.map(function (letter) {
+                return "_"
+            });
+            randomWord.textContent = wordBlanks;
             
         });
     });
-    
 })();
