@@ -141,6 +141,8 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
+        createTheBlanks()
+        displayTheBlanks()
         document.addEventListener('keyup', (e) => {
             if (e.keyCode >= 65 && e.keyCode <= 90) {
                 hideMessage()
