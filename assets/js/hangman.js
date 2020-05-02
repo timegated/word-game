@@ -11,17 +11,20 @@
         this.elements = [
             {
                 randomWord: document.querySelector('.random-word')
-            }, 
+            },
             {
                 randomLink: document.querySelector('.random-link')
             },
-        ]
+            {
+                startMessage: document.querySelector('.message')
+            }
+        ];
     };
 
     // Modifiying prototype of game constructor
 
     WordGame.prototype.getRandomWords = function (arr) {
-        return arr[Math.floor(Math.random() * arr.length) + 1].word;
+        return arr[Math.floor(Math.random() * arr.length)].word;
     };
 
     WordGame.prototype.getWordsFromJson = function (url) {
@@ -38,11 +41,20 @@
 
     const newGame = new WordGame();
 
-    newGame.getWordsFromJson('/wordData.json').then(function (res) {
-        const uiElements = new Elements();
-        const { elements } = uiElements;
-        const [randomWord, randomLink] = elements;
-        newGame.words = res.words;
-        randomWord.randomWord.textContent = newGame.getRandomWords(newGame.words);
+    // Instantiate ui
+
+    const uiElements = new Elements();
+    const { elements } = uiElements;
+    const [randomWord, randomLink, startMessage] = elements;
+
+    document.addEventListener('keyup', function (e) {
+        startMessage.startMessage.style = 'display: none';
+
+        newGame.getWordsFromJson('/wordData.json').then(function (res) {
+            newGame.words = res.words;
+            const singleWord = Array.from(newGame.getRandomWords(newGame.words));
+            
+        });
     });
+    
 })();
