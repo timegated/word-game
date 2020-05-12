@@ -16,15 +16,13 @@ body {
 }
 
 .title {
-    color: #efefef;
+    color: #2c2c2c;
     line-height: 1rem;
     font-size: 1rem;
     padding: 2rem;
     text-align: center;
     border-radius: 25px;
     margin: 1rem;
-    box-shadow: 2px 2px 2px royalblue;
-    background: royalblue;
 }
 
 .title-text {
@@ -32,7 +30,7 @@ body {
 }
 
 .game-section {
-    color: #efefef;
+    color: #2c2c2c;
     padding: 2rem;
     font-family: monospace;
     font-size: 24px;
@@ -42,49 +40,37 @@ body {
     justify-content: center;
 }
 
-.header,
-.user-input,
-.wins-losses {
-    background: royalblue;
-}
-
 .user-input>h4 {
     text-decoration: underline;
 }
 
 .header {
     display: block;
+    color: #2c2c2c;
     justify-content: center;
     text-align: center;
     padding: 2rem;
-    width: 12rem;
-    height: 12rem;
-    box-shadow: 2px 2px 2px royalblue;
     border-radius: 25px;
     margin: 1em;
 }
 
 .user-input {
     display: block;
+    color: #2c2c2c;
     font-size: 1em;
     text-align: center;
     padding: 2rem;
     border-radius: 25px;
-    width: 12rem;
-    height: 12rem;
-    box-shadow: 2px 2px 2px royalblue;
     margin: 1em;
 }
 
 .wins-losses {
     display: block;
+    color: #2c2c2c;
     font-size: 24px;
     text-align: center;
     border-radius: 25px;
     padding: 2rem;
-    width: 12rem;
-    height: 12rem;
-    box-shadow: 2px 2px 2px royalblue;
     margin: 1em;
 }
 
@@ -128,9 +114,10 @@ body {
 
     .game-section {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: center;
         color: #efefef;
+        padding: 2rem;
     }
 
     .header,
@@ -138,5 +125,6 @@ body {
     .wins-losses {
         font-size: 1.5em;
         margin: 1rem;
+        padding: 2rem;
     }
 }

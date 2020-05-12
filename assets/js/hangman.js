@@ -44,92 +44,6 @@
         startMessage,
         userGuesses,
         wins,
-<<<<<<< HEAD
-        randomWord,
-        guesses
-    } = targets;
-    let correctLength = correctGuesses.length;
-    remainingGuesses.textContent = 10;
-    wins.textContent = 0;
-    losses.textContent = 0;
-
-    const createTheBlanks = () => {
-        const randomWord = wordGame.randomWord();
-        const word = [...randomWord.word];
-
-        word.forEach(letter => {
-            correctGuesses.push('_')
-            correctWord.push(letter.toLowerCase())
-        });
-
-    };
-
-    const displayTheBlanks = () => {
-        randomWord.textContent = correctGuesses.join(' ');
-        return true
-    };
-
-
-    const logCorrectGuess = (letter, func) => {
-
-        for (let i = 0; i < wordGame.correctWord.length; i++) {
-            if (letter === wordGame.correctWord[i]) {
-                correctGuesses[i] = letter.toLowerCase();
-            };
-        };
-        if (func()) {
-            correctLength++
-            console.log(correctLength)
-            console.log(correctWord.length)
-            if (correctLength === correctWord.length) {
-                init()
-            };
-        };
-    };
-
-    const displayUserGuesses = (letter) => {
-        guesses.innerHTML = `<p>${[...userGuess.add(letter)]}<p>`;
-
-        if (remainingGuesses.textContent == 0) {
-            losses.textContent++;
-            initialize();
-        };
-    };
-
-    const hideMessage = () => {
-        const messageElement = document.querySelector('.message');
-        messageElement.classList.add('play-state');
-    };
-
-
-    const initialize = () => {
-        remainingGuesses.textContent = 10;
-        randomWord.textContent = '';
-        guesses.textContent = '';
-        userGuess.clear();
-        correctWord = [];
-        correctGuess = [];
-        createTheBlanks();
-    };
-
-    document.addEventListener('DOMContentLoaded', () => {
-        createTheBlanks()
-        displayTheBlanks()
-        document.addEventListener('keyup', (e) => {
-            if (e.keyCode >= 65 && e.keyCode <= 90) {
-                hideMessage()
-                if (correctWord.indexOf(e.key) > -1) {
-                    logCorrectGuess(e.key, displayTheBlanks)
-                } else {
-                    displayUserGuesses(e.key);
-                    remainingGuesses.textContent--;
-                };
-                console.log(e.key);
-            };
-        });
-    });
-}());
-=======
         losses
     } = uiElements;
     
@@ -148,7 +62,7 @@
             // Word blanks array created with map
             const wordBlanks = singleWord.map(function (letter) {
                 return "_";
-            });
+            }).join(' ');
             // Blanks displayed in html
             randomWord.textContent = wordBlanks;
              document.addEventListener('keyup', function (e) {
@@ -158,4 +72,3 @@
         });
     });
 })();
->>>>>>> bcbef8d487ba205fe5f6d0a1a964fe5430dda7a1
