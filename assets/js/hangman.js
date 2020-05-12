@@ -1,10 +1,10 @@
 (function () {
     // Game Constructor
-
     function WordGame() {
         this.totalGuesses = 10;
         this.wins = 0;
         this.losses = 0;
+        this.userGuesses = [];
     };
 
     function Elements() {
@@ -18,9 +18,8 @@
     };
 
     // Modifiying prototype of game constructor
-
-    WordGame.prototype.getRandomWords = function (arr) {
-        return arr[Math.floor(Math.random() * arr.length)].word;
+    WordGame.prototype.getRandomWord = function (arr) {
+        return arr[Math.floor(Math.random() * arr.length)].word.toLowerCase();
     };
 
     WordGame.prototype.getWordsFromJson = function (url) {
@@ -34,13 +33,10 @@
     };
 
     // Instantiate a new game
-
     const newGame = new WordGame();
-
+   
     // Instantiate ui
-
     const uiElements = new Elements();
-
     const {
         randomWord,
         randomLink,
@@ -50,18 +46,29 @@
         wins,
         losses
     } = uiElements;
-
-    document.addEventListener('keyup', function (e) {
-        startMessage.style = 'display: none';
-
+    
+    document.addEventListener('DOMContentLoaded', function (e) {
+        console.log('[Load Success]', e.type)
+        // Outside of event listener to prevent reloading of random word
+        // If all the letters are guessed correctly, the wins increment by 1
+        // Page reloads with new random word
         newGame.getWordsFromJson('/wordData.json').then(function (res) {
+            remainingGuesses.textContent = 10;
+            wins.textContent = 0;
+            losses.textContent = 0;
             newGame.words = res.words;
-            const singleWord = Array.from(newGame.getRandomWords(newGame.words));
+            // Singleword created from random word array
+            const singleWord = Array.from(newGame.getRandomWord(newGame.words));
+            // Word blanks array created with map
             const wordBlanks = singleWord.map(function (letter) {
-                return "_"
+                return "_";
             });
+            // Blanks displayed in html
             randomWord.textContent = wordBlanks;
-            
+             document.addEventListener('keyup', function (e) {
+                 startMessage.style.display = 'none';
+               
+             });
         });
     });
 })();
