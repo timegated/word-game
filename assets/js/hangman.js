@@ -5,6 +5,8 @@
         this.wins = 0;
         this.losses = 0;
         this.userGuesses = [];
+        this.words = [];
+        this.blanks = [];
     };
 
     function Elements() {
@@ -32,6 +34,15 @@
             });
     };
 
+    WordGame.prototype.checkGuess = function (key, arr1, arr2, el) {
+        for (let i = 0; i < arr1.length; i++) {
+            if (key === arr1[i]) {
+                console.log(`Key ${key} matched ${arr1[i]}`)
+                arr2[i] = key;
+            }
+        }
+        return true
+    };
     // Instantiate a new game
     const newGame = new WordGame();
    
@@ -57,22 +68,20 @@
             wins.textContent = 0;
             losses.textContent = 0;
             newGame.words = res.words;
-            // Singleword created from random word array
+
             const singleWord = Array.from(newGame.getRandomWord(newGame.words));
-            // Word blanks array created with map
-            const wordBlanks = singleWord.map(function (letter) {
-                return "_";
-            }).join(' ');
+
+            singleWord.forEach(function (letter) {
+               return newGame.blanks.push('_');
+            });
+            
             // Blanks displayed in html
-            randomWord.textContent = wordBlanks;
-             document.addEventListener('keyup', function (e) {
+            randomWord.innerHTML = newGame.blanks.join(' ')
+            document.addEventListener('keyup', function (e) {
                  startMessage.style.display = 'none';
-               
+                newGame.checkGuess(e.key, singleWord, newGame.blanks)
+                // console.log(newGame.checkGuess(e.key, singleWord))
              });
         });
     });
 })();
-<<<<<<< HEAD
-=======
-
->>>>>>> 551d9eafcaae9a489e627800aba2f54af6682752

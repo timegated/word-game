@@ -18,7 +18,7 @@ body {
 .title {
     color: #2c2c2c;
     line-height: 1rem;
-    font-size: 1rem;
+    font-size: 2rem;
     padding: 2rem;
     text-align: center;
     border-radius: 25px;
@@ -87,6 +87,13 @@ body {
     display: none;
 }
 
+.wordblank {
+    display: inline-block;
+    padding: 1.5rem;
+    background: #000;
+    color: white;
+}
+
 @keyframes fadeInOut {
     0% {
         opacity: 0;
@@ -94,37 +101,5 @@ body {
 
     100% {
         opacity: 1;
-    }
-}
-
-@media screen and (min-width: 800px) {
-    .wrapper {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .title {
-        text-align: center;
-        font-size: 2em;
-        padding: 2rem;
-    }
-
-    .game-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        color: #efefef;
-        padding: 2rem;
-    }
-
-    .header,
-    .user-input,
-    .wins-losses {
-        font-size: 1.5em;
-        margin: 1rem;
-        padding: 2rem;
     }
 }
