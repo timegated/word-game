@@ -92,6 +92,10 @@ body {
     padding: 1.5rem;
     background: #000;
     color: white;
+    animation-name: jump;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    perspective: 150px;
 }
 
 @keyframes fadeInOut {
@@ -101,5 +105,14 @@ body {
 
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform:rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
     }
 }

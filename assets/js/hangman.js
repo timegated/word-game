@@ -5,7 +5,6 @@
         this.wins = 0;
         this.losses = 0;
         this.userGuesses = [];
-        this.words = [];
         this.blanks = [];
     };
 
@@ -21,6 +20,13 @@
 
     // Modifiying prototype of game constructor
     WordGame.prototype.getRandomWord = function (arr) {
+        let n = arr.length, i, t;
+        while (n) {
+            i = Math.floor(Math.random() * n--);
+            t = arr[n];
+            arr[n] = arr[i];
+            arr[i] = t;
+        }
         return arr[Math.floor(Math.random() * arr.length)].word.toLowerCase();
     };
 
@@ -38,8 +44,8 @@
         for (let i = 0; i < arr1.length; i++) {
             if (key === arr1[i]) {
                 console.log(`Key ${key} matched ${arr1[i]}`)
-                arr2[i] = key;
-                el.innerHTML = arr2.join(' ')
+                arr2[i] = `<span class="wordblank jump">${key}</span>`;
+                el.innerHTML = arr2.join(' ');
             }
         }
         return true
@@ -71,9 +77,9 @@
             newGame.words = res.words;
 
             const singleWord = Array.from(newGame.getRandomWord(newGame.words));
-
+            console.log(singleWord)
             singleWord.forEach(function (letter) {
-               return newGame.blanks.push('_');
+               return newGame.blanks.push(`<span class="wordblank"> _ </span>`);
             });
             
             // Blanks displayed in html
