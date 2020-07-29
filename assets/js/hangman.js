@@ -39,6 +39,7 @@
             if (key === arr1[i]) {
                 console.log(`Key ${key} matched ${arr1[i]}`)
                 arr2[i] = key;
+                el.innerHTML = arr2.join(' ')
             }
         }
         return true
@@ -78,9 +79,8 @@
             // Blanks displayed in html
             randomWord.innerHTML = newGame.blanks.join(' ')
             document.addEventListener('keyup', function (e) {
-                 startMessage.style.display = 'none';
-                newGame.checkGuess(e.key, singleWord, newGame.blanks)
-                // console.log(newGame.checkGuess(e.key, singleWord))
+                startMessage.style.display = 'none';
+                newGame.checkGuess(e.key, singleWord, newGame.blanks, randomWord)
              });
         });
     });
